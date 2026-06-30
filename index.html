@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Triagem - Estética Automotiva</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- TELA 1: FORMULÁRIO DE TRIAGEM -->
+        <div id="tela-triagem" class="card">
+            <div class="logo-area">
+                <i class="fa-solid fa-motorcycle logo-icon"></i>
+                <h1>MOTO<span>ESTÉTICA</span></h1>
+                <p>Check-in & Triagem Digital</p>
+            </div>
+
+            <form id="form-triagem">
+                <div class="input-group">
+                    <label for="placa"><i class="fa-solid fa-id-card"></i> Placa da Moto</label>
+                    <input type="text" id="placa" placeholder="ABC1D23" required maxlength="8">
+                </div>
+
+                <div class="input-group">
+                    <label for="nome"><i class="fa-solid fa-user"></i> Nome do Cliente</label>
+                    <input type="text" id="nome" placeholder="Digite o nome completo" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="whatsapp"><i class="fa-solid fa-brands fa-whatsapp"></i> WhatsApp</label>
+                    <input type="tel" id="whatsapp" placeholder="(00) 00000-0000" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="modelo"><i class="fa-solid fa-motorcycle"></i> Modelo da Moto</label>
+                    <input type="text" id="modelo" placeholder="Ex: Titan 160, XRE 300" required>
+                </div>
+
+                <div class="checklist-box">
+                    <label class="checklist-title"><i class="fa-solid fa-clipboard-list"></i> Inspeção Visual Rápida</label>
+                    <div class="checkbox-wrapper">
+                        <label><input type="checkbox" id="chk-riscado"> <span>Possui Riscos</span></label>
+                        <label><input type="checkbox" id="chk-amassado"> <span>Possui Amassados</span></label>
+                        <label><input type="checkbox" id="chk-sujeira"> <span>Sujeira Pesada / Barro</span></label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fa-solid fa-bolt"></i> CADASTRAR E INICIAR
+                </button>
+            </form>
+        </div>
+
+        <!-- TELA 2: ACOMPANHAMENTO DO CLIENTE / CONTROLE -->
+        <div id="tela-cliente" class="card hidden">
+            <div class="header-cliente">
+                <button onclick="voltarTriagem()" class="btn-voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+                <span class="badge-online"><i class="fa-solid fa-circle"></i> Ao Vivo</span>
+            </div>
+
+            <div class="info-moto">
+                <h2 id="view-modelo">Modelo da Moto</h2>
+                <div class="placa-tag" id="view-placa">ABC-1234</div>
+                <p class="dono-texto">Proprietário: <span id="view-nome">Nome do Cliente</span></p>
+            </div>
+
+            <!-- LINHA DO TEMPO (STATUS) -->
+            <div class="timeline">
+                <div class="step" id="step-1">
+                    <div class="step-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="step-content"><h3>Na Fila</h3><p>Aguardando início</p></div>
+                </div>
+                <div class="step" id="step-2">
+                    <div class="step-icon"><i class="fa-solid fa-soap"></i></div>
+                    <div class="step-content"><h3>Lavagem</h3><p>Estética detalhada</p></div>
+                </div>
+                <div class="step" id="step-3">
+                    <div class="step-icon"><i class="fa-solid fa-sparkles"></i></div>
+                    <div class="step-content"><h3>Secagem e Cera</h3><p>Acabamentos finais</p></div>
+                </div>
+                <div class="step" id="step-4">
+                    <div class="step-icon"><i class="fa-solid fa-square-check"></i></div>
+                    <div class="step-content"><h3>Pronta!</h3><p>Disponível para retirada</p></div>
+                </div>
+            </div>
+
+            <!-- PAINEL DE BOTÕES (Fica na recepção para você mudar o status) -->
+            <div class="painel-controle">
+                <p class="Painel-titulo">Alterar Status (Recepção):</p>
+                <div class="grid-botoes">
+                    <button onclick="mudarStatus(1)" class="btn-status">1. Fila</button>
+                    <button onclick="mudarStatus(2)" class="btn-status">2. Lavagem</button>
+                    <button onclick="mudarStatus(3)" class="btn-status">3. Finalizar</button>
+                    <button onclick="mudarStatus(4)" class="btn-status">4. Pronta</button>
+                </div>
+            </div>
+
+            <a id="btn-suporte" href="#" target="_blank" class="btn-whatsapp">
+                <i class="fa-solid fa-brands fa-whatsapp"></i> Notificar Cliente no WhatsApp
+            </a>
+        </div>
+    </div>
+</body>
+</html>
